@@ -123,5 +123,8 @@ if uploaded_file is not None:
        # Creating a PyGWalker Dashboard
         html_str = pyg.walk(data)
 
+        # Wrap the HTML string with an HTML document structure
+        html_str = f"<!DOCTYPE html><html><body>{html_str}</body></html>"
+
         # Display the HTML code in Streamlit
-        st.components.v1.html(html_str, width=150, height=150) 
+        st.components.v1.html(html_str, width=150, height=150)  # Adjust width and height as needed
