@@ -124,5 +124,5 @@ if uploaded_file is not None:
         #Creating a PyGWalker Dashboard
         walker = pyg.walk(data)
         # html_string = str(walker)
-        # components.html(html_string,width=500, height=500)
+        components.html(walker,width=500, height=500)
 
