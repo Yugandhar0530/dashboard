@@ -123,7 +123,7 @@ if uploaded_file is not None:
         
         #Creating a PyGWalker Dashboard
         try:
-            walker = pyg.walk(data)
+            walker = pyg.walk(data,header=0)
             html_string = str(walker)
             components.html(html_string, width=800, height=800)
         except Exception as e:
