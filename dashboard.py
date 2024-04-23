@@ -121,4 +121,4 @@ if uploaded_file is not None:
         st.write( '### 3. Visual Insights ')
         
         #Creating a PyGWalker Dashboard
-        walker = pyg.walk(data, return_html=True)
+        walker = pyg.walk(data)
