@@ -122,3 +122,4 @@ if uploaded_file is not None:
         
         #Creating a PyGWalker Dashboard
         walker = pyg.walk(data)
+        st.components.v1.html(walker, width=1100, height=800)
