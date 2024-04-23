@@ -121,10 +121,15 @@ if uploaded_file is not None:
         st.write( '### 3. Visual Insights ')
 
        # Creating a PyGWalker Dashboard
-        html_str = pyg.walk(data)
+        walker = pyg.walk(data)
 
-        # Wrap the HTML string with an HTML document structure
-        html_str = f"<!DOCTYPE html><html><body>{html_str}</body></html>"
+        # Save the HTML report to a temporary file
+        with tempfile.NamedTemporaryFile(mode='w+', delete=False, suffix=".html") as temp_file:
+            walker.render(temp_file.name)
+            temp_file_path = temp_file.name
 
-        # Display the HTML code in Streamlit
-        st.components.v1.html(html_str, width=150, height=150)  # Adjust width and height as needed
+        # Display the HTML file in Streamlit
+        st.markdown(f'<iframe src="file://{temp_file_path}" width="100%" height="800"></iframe>', unsafe_allow_html=True)
+
+        # Remove the temporary file
+        os.unlink(temp_file_path)
