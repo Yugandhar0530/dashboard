@@ -122,7 +122,10 @@ if uploaded_file is not None:
         st.write( '### 3. Visual Insights ')
         
         #Creating a PyGWalker Dashboard
-        walker = pyg.walk(data)
-        # html_string = str(walker)
-        components.html(str(walker),width=500, height=500)
+       try:
+           walker = pyg.walk(data)
+           html_string = str(walker)
+           st.components.v1.html(html_string, width=1100, height=800)
+       except Exception as e:
+           st.error(f"An error occurred: {e}")
 
