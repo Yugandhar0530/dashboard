@@ -120,6 +120,8 @@ if uploaded_file is not None:
 
         #Creating a PyGWalker Dashboard
         walker = pyg.walk(data, return_html=True)
-        st.components.v1.html(walker, width=150, height=150)  #Adjust width and height as needed
+        html_str = walker.to_html()  # Assuming PyGWalker has a to_html method
+        st.write(html_str)
+        # st.components.v1.html(walker, width=150, height=150)  #Adjust width and height as needed
 
 
