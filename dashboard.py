@@ -119,10 +119,10 @@ if uploaded_file is not None:
         st.write( '### 3. Visual Insights ')
 
         # Creating a PyGWalker Dashboard
-        walker = pyg.walk(data, return_html=True)
-        html_str = walker.html  # Assuming that the HTML code is stored in the 'html' attribute
+        walker = pyg.walk(data)
+        # html_str = walker.html  # Assuming that the HTML code is stored in the 'html' attribute
 
         # Display the HTML code in Streamlit
-        st.components.v1.html(html_str, width=150, height=150)  # Adjust width and height as needed
+        st.components.v1.html(get_pyg_html(walker), width=150, height=150)  # Adjust width and height as needed
 
 
