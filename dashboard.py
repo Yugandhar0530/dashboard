@@ -3,6 +3,7 @@ import tempfile
 import os
 import sys
 import streamlit as st
+import streamlit.components.v1 as components
 import openpyxl
 import pygwalker as pyg
 import pandas as pd
@@ -123,5 +124,5 @@ if uploaded_file is not None:
         #Creating a PyGWalker Dashboard
         walker = pyg.walk(data)
         html_string = str(walker)
-        st.components.v1.html(html_string, width=800, height=800)
+        components.html(html_string)
 
